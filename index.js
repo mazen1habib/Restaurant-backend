@@ -10,13 +10,18 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 dotenv.config();
-app.listen(process.env.PORT, () => {
+const port = 4000 || process.env.PORT;
+app.listen(port, () => {
   console.log("server Started");
 });
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "http://mazenrestaurnat.surge.sh/menu/All",
+    ],
     credentials: true,
   })
 );
